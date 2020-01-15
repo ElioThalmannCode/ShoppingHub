@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+<h1>Your ShoppingCart</h1>
+{% for item in shopping_cart %}
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="http://127.0.0.1:8000/products/{{ item.id }}/">
+      <img src="{{ item.picture }}" alt="{{ item.title }}" width="300px" height="300px">
+    </a>
+    <div class="desc">{{ item.title }}
+      {{ item.price }}Fr.
+      <a href="http://127.0.0.1:8000/product/delete/{{ item.id }}/"><button>Entfernen</button></a>
+</div>
+</div>
+  </div>
+{% endfor %}
+{% endblock content %}

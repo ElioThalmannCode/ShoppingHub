@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+<h1>Home</h1>
+<p>Hallo, {{ request.user }} hier haben wir ein paar Produkte für dich.</p>
+{% for product in products %}
+  {% if product.featured == True %}
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="http://127.0.0.1:8000/products/{{ product.id }}/">
+          <img src="{{ product.picture }}" alt="{{ product.title }}" width="300px" height="300px">
+        </a>
+        <div class="desc">{{ product.title }}
+          {{ product.price }}Fr.
+    </div>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+{% endblock content %}

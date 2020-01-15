@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Template by html.am -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{% block title %}
+{% endblock title %}
+		<style type="text/css">
+			@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+			body {
+				margin:0;
+				padding:0;
+				font-family: Sans-Serif;
+				line-height: 1.5em;
+			}
+			
+			#header {
+				background: #1b1b1b;
+				height: 76px;
+			}
+			
+			#header h1 {
+				margin: 0;
+				padding-top: 15px;
+				color: white;
+				font-family: Roboto;
+			}
+			
+			main {
+				padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				float: left;
+				width: 100%;
+			}
+			
+			#nav {
+				padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				float: left;
+				width: 230px;
+				margin-left: -100%;
+				background: gray;
+			}
+			
+			#footer {
+				clear: left;
+				width: 100%;
+				text-align: center;
+				padding: 4px 0;
+				background: #1b1b1b;
+			}
+	
+			#wrapper {
+				overflow: hidden;
+			}
+						
+			#content {
+				margin-left: 230px; /* Same as 'nav' width */
+			}
+			
+			.innertube {
+				margin: 15px; /* Padding for content */
+				margin-top: 0;
+				color: #555;
+			}
+		
+			price {
+				color: red;
+			}		
+			p1 {
+				color: white;
+				font-family: Roboto;
+			}
+	
+			nav ul {
+				color: rgb(255, 255, 255);
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			nav ul a {
+				color: rgb(255, 255, 255);
+				text-decoration: none;
+			}
+			.pic {
+
+			}
+			.w3-third {
+
+			}
+			div.gallery {
+			  margin-top: 12px;
+			  border: 1px solid #ccc;
+			}
+			
+			div.gallery:hover {
+			  margin-top: 12px;
+			  border: 1px solid black;
+			}
+			
+			div.gallery img {
+			  width: 100%;
+			  height: auto;
+			  font-family: Roboto;
+			}
+			
+			div.desc {
+			  padding: 15px;
+			  text-align: center;
+			}
+			
+			* {
+			  box-sizing: border-box;
+			}
+			
+			.responsive {
+			  padding: 0 6px;
+			  float: left;
+			  width: 24.99999%;
+			}
+			
+			@media only screen and (max-width: 700px) {
+			  .responsive {
+			    width: 49.99999%;
+			    margin: 6px 0;
+			  }
+			}
+			
+			@media only screen and (max-width: 500px) {
+			  .responsive {
+			    width: 100%;
+			  }
+			}
+			
+			.clearfix:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			 /* Style inputs with type="text", select elements and textareas */
+			input[type=text], select, textarea {
+			  width: 100%; /* Full width */
+			  padding: 12px; /* Some padding */ 
+			  border: 1px solid #ccc; /* Gray border */
+			  border-radius: 4px; /* Rounded borders */
+			  box-sizing: border-box; /* Make sure that padding and width stays in place */
+			  margin-top: 6px; /* Add a top margin */
+			  margin-bottom: 16px; /* Bottom margin */
+			  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+			}
+			
+			/* Style the submit button with a specific background color etc */
+			input[type=submit] {
+			  background-color: #4CAF50;
+			  color: white;
+			  padding: 12px 20px;
+			  border: none;
+			  border-radius: 4px;
+			  cursor: pointer;
+			}
+			
+			/* When moving the mouse over the submit button, add a darker green color */
+			input[type=submit]:hover {
+			  background-color: #45a049;
+			}
+			
+			/* Add a background color and some padding around the form */
+			.container {
+			  border-radius: 5px;
+			  background-color: whitesmoke;
+			  padding: 20px;
+			} 
+			.search-text{
+			margin-top:50px;
+			background-color: #272d33;
+			padding-top:60px;
+			padding-bottom:60px;
+			}
+
+			.search-text .input-search{
+				height:45px;
+				width:40%;
+				padding-left:20px;
+			    color:#333;
+			} 
+
+			.search-text .btn-search{
+			    background: #da3e44;
+			    font-family:Roboto;
+			    border:none;
+				color:Black;
+				height: 45px;
+			    width: 80px;
+			}
+
+			.search-text h4{
+			    color: Black;
+			    font-weight: 700;
+			}
+
+			footer{
+			     background-color: #1b1b1b;
+			     padding:30px 0px;
+			}	       
+
+			.logo{
+			    color:blackS;
+			    font-weight:700;
+			    font-size:30px;
+			}
+
+			.address span , .menu span{
+			   color: Black; 
+			   font-weight: bold; 
+			   border-bottom: 1px solid #c7c7c7; 
+			   padding:10px 0px;
+			   display: block;
+			   text-transform: uppercase;
+			   font-size: 16px;
+			   letter-spacing: 3px;
+			}
+
+			.address li a , .menu li a{
+			    color: Black;
+			    letter-spacing: 3px;
+			    text-decoration:none;
+			    font-size:14px;
+			}
+
+			.address li, .menu li{
+			    margin:20px 0px;
+			    list-style: none;
+			}
+
+			.address li a:hover , .menu li a:hover{
+			    color: #da3e44;
+			    -webkit-transition: all 1s ease-in-out;
+			    -moz-transition: all 1s ease-in-out;
+			    -o-transition: all 1s ease-in-out;
+			    transition: all 1s ease-in-out;
+			}
+
+			.address .fa{
+			    color: #da3e44;
+			    margin-right: 10px;
+			    font-size:18px;
+			}
+			a {
+				color: white;
+			}
+
+
+		</style>
+		
+		<script type="text/javascript">
+			/* =============================
+			This script generates sample text for the body content. 
+			You can remove this script and any reference to it. 
+			 ============================= */
+			var bodyText=["The smaller your reality, the more convinced you are that you know everything.", "If the facts don't fit the theory, change the facts.", "The past has no power over the present moment.", "This, too, will pass.", "</p><p>You will not be punished for your anger, you will be punished by your anger.", "Peace comes from within. Do not seek it without.", "<h3>Heading</h3><p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now."]
+			function generateText(sentenceCount){
+				for (var i=0; i<sentenceCount; i++)
+				document.write(bodyText[Math.floor(Math.random()*7)]+" ")
+			}
+		</script>	
+	
+	</head>
+	
+	<body>		
+
+		<header id="header">
+			<div class="innertube">
+				<h1><a href="http://127.0.0.1:8000/">ShoppingHub</a></h1>
+				<p1>Dein Platz für online Shopping!</p>
+			</div>
+		</header>
+		
+		<div id="wrapper">
+		
+			<main>
+				<div id="content">
+					<div class="innertube">
+                        {% block content %}
+						<h1>Artikel</h1>
+                        <p>hallo0</p>
+                        {% endblock content %}
+					</div>
+				</div>
+			</main>
+			
+			<nav id="nav">
+				<div class="innertube">
+					<h3>Menü</h3>
+					<ul>
+                        <li><a href="http://127.0.0.1:8000/">Home</a></li>
+						<li><a href="http://127.0.0.1:8000/products/">Produkte</a></li>
+						<li><a href="http://127.0.0.1:8000/contact/">Kontakt</a></li>
+						<li><a href="http://127.0.0.1:8000/shoppingcart/">Warenkorb</a></li>
+						<li class="loog"><a href="http://127.0.0.1:8000/admin/login/">Artikel erstellen</a></li>
+					</ul>
+				</div>
+			</nav>
+		
+		</div>
+		       
+			</div>     
+		 </div>
+		 
+		 <footer>
+		  <div class="container">
+			<div class="row">
+			
+					 <div class="col-md-4 col-sm-6 col-xs-12">
+					   <span class="logo" href="http://127.0.0.1:8000/">ShoppingHub</span>
+					 </div>
+					 
+					 <div class="col-md-4 col-sm-6 col-xs-12">
+						 <ul class="menu">
+							  <span>Menu</span>    
+							  <li>
+								 <a href="#">Home</a>
+							   </li>
+									
+							   <li>
+								  <a href="#">About</a>
+							   </li>
+									
+							   <li>
+								 <a href="http://127.0.0.1:8000/admin/">Login</a>
+							   </li>
+									
+							   <li>
+								  <a href="#">Gallery </a>
+							   </li>
+						  </ul>
+					 </div>
+				
+					 <div class="col-md-4 col-sm-6 col-xs-12">
+					   <ul class="address">
+							 <span>Contact</span>       
+							 <li>
+								<i class="fa fa-phone" aria-hidden="true"></i> <a href="#">Phone</a>
+							 </li>
+							 <li>
+								<i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">Adress</a>
+							 </li> 
+							 <li>
+								<i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
+							 </li> 
+						</ul>
+					</div>
+				
+				
+				</div> 
+			 </div>
+		 </footer>
+	
+	</body>
+</html>

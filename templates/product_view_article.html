@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ product.title }}</h1>
+<div class="responsive">
+<div>
+</div>
+<img src="{{ product.picture }}" alt="{{ product.title }}" width="300px" height="300px">
+<h2>{{ product.price }}Fr.</h2></div>
+{{ product.summary }}
+<div>
+<a href="http://127.0.0.1:8000/product/add/{{ product.id }}/"><button>In den Warenkorb</button></a>
+</div>
+{% endblock content %}
