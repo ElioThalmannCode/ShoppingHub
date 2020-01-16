@@ -120,3 +120,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'orders.shoppinghub@gmail.com'
+EMAIL_HOST_PASSWORD = 'KFvNcw4V62YMLyU'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

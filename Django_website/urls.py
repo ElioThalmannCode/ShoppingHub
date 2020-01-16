@@ -26,6 +26,7 @@ urlpatterns = [
     path('products/<int:num>/', views.product_view_article),
     path('shoppingcart/', views.shoppingcart),
     path('product/delete/<int:num>/', views.delete),
+    path('order/', views.order),
 
     ]
 admin.site.site_header = "ShoppingHub Admin by Elio Thalmann"
