@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
 from blog.models import Product
 from django.core.mail import send_mail
@@ -28,7 +28,7 @@ def add(request, num, *args, **kwargs):
     request.session['cart'] = cart
     for id in request.session.get("cart", [ ]):
         scart.append(Product.objects.get(id=id))
-    return render(request, "shoppingcart.html", {"shopping_cart": scart})
+    return redirect("http://127.0.0.1:8000/shoppingcart/")
 
 def shoppingcart(request, *args, **kwargs):
     scart = []
@@ -51,19 +51,46 @@ def delete(request, num, *args, **kwargs):
     request.session['cart'] = cart
     for id in request.session.get("cart", [ ]):
         scart.append(Product.objects.get(id=id))
-    return render(request, "shoppingcart.html", {"shopping_cart": scart})
+    return redirect("http://127.0.0.1:8000/shoppingcart/")
 
 
 
 def order(request, *args, **kwargs):
+    scart = []
+    all_order = []
+    for item in request.session.get("cart", [ ]):
+        scart.append(Product.objects.get(id=item))
+    for item in scart:
+        all_order.append(item.title)
+    all_order = '\n'.join(all_order)
+    message = (f"""
+Es hat jemand mit der Email {request.POST['your_email']}  hat bestellt.
+
+
+Daten:
+
+Anrede: {request.POST['your_se']}
+sein Vorname: {request.POST['your_name']}
+sein Nachname: {request.POST['your_lastname']}
+seine PLZ: {request.POST['your_zip_code']}
+sein Ort: {request.POST['your_ort']}
+seine Adresse: {request.POST['your_adress']}
+seine Adressnummer: {request.POST['your_adressnr']}
+    
+Produkte:
+{all_order}
+    """)
     send_mail(
         'order',
-        'ok cool',
+        message,
         'orders.shoppinghub@gmail.com',
         ['in19thel@tfbern.ch'],
-        fail_silently=True,
+        fail_silently=False,
     )
     return render(request, "order.html")
+
+def get_email(request, *args, **kwargs):
+    return render(request, "email.html")
 
 
 

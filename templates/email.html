@@ -1,9 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-{% csrf_token %}
-<form action="/order/" method="post">
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+<form action="/order/" method="post">{% csrf_token %}
+    <label for="your_email">Deine Email: </label>
+    <input id="your_email" type="text" name="your_email" value="{{ current_email }}">
+    <label for="your_se">Anrede: </label>
+    <input id="your_se" type="text" name="your_se" value="{{ your_se }}">
+    <label for="your_name">Dein Vorname: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ your_name }}">
+    <label for="your_lastname">Dein Nachname: </label>
+    <input id="your_lastname" type="text" name="your_lastname" value="{{ your_lastname }}">
+    <label for="your_zip_code">Deine Postleizahl: </label>
+    <input id="your_zip_code" type="text" name="your_zip_code" value="{{ your_zip_code }}">
+    <label for="your_ort">Ort: </label>
+    <input id="your_ort" type="text" name="your_ort" value="{{ your_ort }}">
+    <label for="your_adress">Deine Adresse: </label>
+    <input id="your_adress" type="text" name="your_adress" value="{{ your_adress }}">
+    <label for="your_adressnr">Deine Adressnummer: </label>
+    <input id="your_adressnr" type="text" name="your_adressnr" value="{{ your_adressnr }}">
+
     <input type="submit" value="OK">
 </form>
+
 {% endblock content %}
+your_ort
