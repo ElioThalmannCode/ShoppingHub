@@ -5,7 +5,6 @@ from django.core.mail import send_mail
 # Create your views here.
 def home_view(request, *args, **kwargs):
     products =  Product.objects.all()
-    print(products)
     return render(request, "home.html",  {"products": products})
 def contact_view(request, *args, **kwargs):
     return render(request, "contact.html")
@@ -33,7 +32,6 @@ def add(request, num, *args, **kwargs):
 def shoppingcart(request, *args, **kwargs):
     scart = []
     total_price = 0
-    #print(request.session.get("cart", [ ]))
     for id in request.session.get("cart", [ ]):
         product  = Product.objects.get(id=id)
         total_price += product.price

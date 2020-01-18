@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-<h1>Your ShoppingCart</h1>
+<h1>Warenkorb</h1>
 <h3>Total: {{ total_price }}Fr.</h3>
 {% for item in shopping_cart %}
 <div class="responsive">
@@ -11,10 +11,13 @@
     </a>
     <div class="desc">{{ item.title }}
       {{ item.price }}Fr.
-      <a href="http://127.0.0.1:8000/product/delete/{{ item.id }}/"><button>Entfernen</button></a>
+      <a href="http://127.0.0.1:8000/product/delete/{{ item.id }}/"><button class="delete_button delete_button1">aus Warenkorb entfernen</button></a>
 </div>
 </div>
   </div>
+
 {% endfor %}
-<a href="http://127.0.0.1:8000/email/"><button>Bestellen</button></a>
+<div class="order_now">
+  <a href="http://127.0.0.1:8000/email/"><button class="button button1">Bestellen</button></a>
+  </div>
 {% endblock content %}
