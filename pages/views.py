@@ -60,6 +60,7 @@ def order(request, *args, **kwargs):
         scart.append(Product.objects.get(id=item))
     for item in scart:
         all_order.append(item.title)
+        all_order.append(f"{item.price}Fr.\n")
     all_order = '\n'.join(all_order)
     message = (f"""
 Es hat jemand mit der Email {request.POST['your_email']}  hat bestellt.
@@ -78,6 +79,25 @@ seine Adressnummer: {request.POST['your_adressnr']}
 Produkte:
 {all_order}
     """)
+    message_client = (f"""
+Du hast etwas bei Shoppinghub bestellt.
+
+
+Daten:
+
+Anrede: {request.POST['your_se']}
+sein Vorname: {request.POST['your_name']}
+sein Nachname: {request.POST['your_lastname']}
+seine PLZ: {request.POST['your_zip_code']}
+sein Ort: {request.POST['your_ort']}
+seine Adresse: {request.POST['your_adress']}
+seine Adressnummer: {request.POST['your_adressnr']}
+    
+bestellte Produkte:
+{all_order}
+
+Sie werden benachrichtigt wenn die Artikel geliefert wurden.
+    """)
     send_mail(
         'order',
         message,
@@ -85,10 +105,28 @@ Produkte:
         ['in19thel@tfbern.ch'],
         fail_silently=False,
     )
+    send_mail(
+        'order at shoppinghub',
+        message_client,
+        'orders.shoppinghub@gmail.com',
+        [request.POST['your_email']],
+        fail_silently=True,
+    )
     return render(request, "order.html")
 
 def get_email(request, *args, **kwargs):
     return render(request, "email.html")
+def send_question(request, *args, **kwargs):
+    send_mail(
+        'shoppinghub',
+        (f"""{request.POST['your_name']} mit der Email {request.POST['your_email']} hat dir folgende Nachricht geschrieben:
+        
+{request.POST['your_question']}
+        """),
+        'orders.shoppinghub@gmail.com',
+        ["in19thel@tfbern.ch"],
+        fail_silently=True,
+    )
 
 
 
