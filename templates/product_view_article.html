@@ -5,9 +5,13 @@
 <div>
 </div>
 <img src="{{ product.picture }}" alt="{{ product.title }}" width="300px" height="300px">
-<h2>{{ product.price }}Fr.</h2></div>
-{{ product.summary }}
+<h2>{{ product.price }}Fr.</h2>
 <div>
-<a href="http://127.0.0.1:8000/product/add/{{ product.id }}/"><button>In den Warenkorb</button></a>
+    <a href="http://127.0.0.1:8000/product/add/{{ product.id }}/"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>In den Warenkorb</button></a>
+    </div>
+    <div class="summary">
+        <h2>Beschreibung:</h2>
+        <p class="summary">{{  product.summary }}</p>
+    </div>
 </div>
 {% endblock content %}

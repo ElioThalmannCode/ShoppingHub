@@ -4,6 +4,8 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <html>
 	<head>
+		<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 {% block title %}
 {% endblock title %}
@@ -15,7 +17,7 @@
 				font-family: Roboto;
 				line-height: 1.5em;
 			}
-			
+			@import "@material/icon-button/";
 			#header {
 				background: #1b1b1b;
 				height: 76px;
@@ -23,7 +25,7 @@
 			
 			#header h1 {
 				margin: 0;
-				padding-top: 15px;
+				padding-top: 15pbcx;
 				color: white;
 				font-family: Roboto;
 			}
@@ -118,9 +120,10 @@
 			  text-align: center;
 			}
 			div.order_now{
-				margin-bottom: 400px;
-				margin-left: 80%;
-				margin-top: 450px;
+				margin-left: 1138px;
+			}
+			div.summary{
+				margin-top: 20px;
 			}
 			
 			* {
@@ -151,6 +154,11 @@
 			  display: table;
 			  clear: both;
 			}
+			.summary{
+				font-family: Roboto;
+				font-size: 20px;
+
+			}
 			 /* Style inputs with type="text", select elements and textareas */
 			input[type=text], select, textarea {
 			  width: 100%; /* Full width */
@@ -172,7 +180,9 @@
 			  border-radius: 4px;
 			  cursor: pointer;
 			}
-			
+			.contact_title{
+				margin-bottom: 50px;
+			}
 			/* When moving the mouse over the submit button, add a darker green color */
 			input[type=submit]:hover {
 			  background-color: #45a049;
@@ -307,7 +317,7 @@
 			.delete_button1 {
 			  background-color: white; 
 			  color: black; 
-			  background-color: red;
+			  background-color: lightcoral;
 			}
 
 			.delete_button1:hover {
@@ -397,9 +407,9 @@
 				
 					 <div class="col-md-4 col-sm-6 col-xs-12">
 					   <ul class="address">
-							 <span>Contact</span>       
+							 <span>Kontakt:</span>       
 							 <li>
-								<i class="fa fa-envelope" aria-hidden="true"></i>	orders.shoppinghub@gmail.com</a>
+								<i class="fa fa-envelope" aria-hidden="true"></i>orders.shoppinghub@gmail.com</a>
 							 </li> 
 						</ul>
 					</div>

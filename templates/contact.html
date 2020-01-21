@@ -1,14 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="/question/" method="post">{% csrf_token %}
-    <label for="your_email">Deine Email: </label>
-    <input id="your_email" type="text" name="your_email" value="{{ your_email }}">
-    <label for="your_se">Dein Name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ your_name }}">
-    <label for="your_question">Was möchten sie uns fragen?: </label>
-    <input id="your_question" type="text" name="your_question" value="{{ your_question }}">
-
-    <input type="submit" value="OK">
-</form>
-
+<h2>Kontakt:</h2>
+<h3>Hier können sie uns ein Email senden.</h3>
+<form action="/question/" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit"/>
+    </form>
 {% endblock content %}

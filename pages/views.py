@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
 from blog.models import Product
 from django.core.mail import send_mail
+from .forms import contact_form
 # Create your views here.
 def home_view(request, *args, **kwargs):
     products =  Product.objects.all()
     return render(request, "home.html",  {"products": products})
-def contact_view(request, *args, **kwargs):
-    return render(request, "contact.html")
+def contact_view(request):
+    form = contact_form
+    return render(request, "contact.html", {"form": form})
 def login_view(request, *args, **kwargs):
     return render(request, "login.html")
 
@@ -119,17 +121,12 @@ def get_email(request, *args, **kwargs):
 def send_question(request, *args, **kwargs):
     send_mail(
         'shoppinghub',
-        (f"""{request.POST['your_name']} mit der Email {request.POST['your_email']} hat dir folgende Nachricht geschrieben:
+        (f"""{request.POST['name']} mit der Email {request.POST['email']} hat dir folgende Nachricht geschrieben:
         
-{request.POST['your_question']}
+{request.POST['comment']}
         """),
         'orders.shoppinghub@gmail.com',
         ["in19thel@tfbern.ch"],
         fail_silently=True,
     )
-
-
-
-
-
-
+    return redirect("http://127.0.0.1:8000/")

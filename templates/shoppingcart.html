@@ -2,7 +2,11 @@
 {% block content %}
 <div>
 <h1>Warenkorb</h1>
+<div class="order_now">
+  <a href="http://127.0.0.1:8000/email/"><button class="btn btn-success">Bestellen</button></a>
+</div>
 <h3>Total: {{ total_price }}Fr.</h3>
+
 {% for item in shopping_cart %}
 <div class="responsive">
   <div class="gallery">
@@ -11,13 +15,13 @@
     </a>
     <div class="desc">{{ item.title }}
       {{ item.price }}Fr.
-      <a href="http://127.0.0.1:8000/product/delete/{{ item.id }}/"><button class="delete_button delete_button1">diesen Artikel entfernen</button></a>
+      <div>
+      <a href="http://127.0.0.1:8000/product/delete/{{ item.id }}/"><button type="button" class="btn btn-danger">X</button></a>
+    </div>
 </div>
 </div>
   </div>
 
 {% endfor %}
-<div class="order_now">
-  <a href="http://127.0.0.1:8000/email/"><button class="button button1">Bestellen</button></a>
-  </div>
+
 {% endblock content %}

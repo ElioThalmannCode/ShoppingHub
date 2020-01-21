@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="/question/" method="post">{% csrf_token %}
+<form action="/order/" method="post">{% csrf_token %}
     <label for="your_email">Deine Email: </label>
     <input id="your_email" type="text" name="your_email" value="{{ current_email }}">
     <label for="your_se">Anrede: </label>
@@ -22,4 +22,3 @@
 </form>
 
 {% endblock content %}
-your_ort
