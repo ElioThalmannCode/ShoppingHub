@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages import views
+from django.contrib.auth import views as auth_views
+from django.conf.urls import url
+from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_view, name='home'),
@@ -28,7 +31,10 @@ urlpatterns = [
     path('product/delete/<int:num>/', views.delete),
     path('order/', views.order),
     path('email/', views.get_email),
-    path('question/', views.send_question)
+    path('question/', views.send_question),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+
 
     ]
 admin.site.site_header = "ShoppingHub Admin by Elio Thalmann"

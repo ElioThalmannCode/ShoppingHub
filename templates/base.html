@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <html>
 	<head>
 		<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
@@ -20,7 +19,7 @@
 			@import "@material/icon-button/";
 			#header {
 				background: #1b1b1b;
-				height: 76px;
+				height: 130px;
 			}
 			
 			#header h1 {
@@ -28,6 +27,8 @@
 				padding-top: 15pbcx;
 				color: white;
 				font-family: Roboto;
+				width: 20px;
+
 			}
 			h1 {
 				font-family: Roboto;
@@ -57,7 +58,9 @@
 				width: 100%;
 				text-align: center;
 				padding: 4px 0;
-				background: #1b1b1b;
+				background: #FFF;
+				margin-top: 2000px;
+				position: fixed;
 			}
 	
 			#wrapper {
@@ -207,7 +210,9 @@
 				padding-left:20px;
 			    color:#333;
 			} 
-
+			div.form_login{
+				margin-top: 20px;
+			}
 			.search-text .btn-search{
 			    background: #da3e44;
 			    font-family:Roboto;
@@ -225,6 +230,7 @@
 			footer{
 			     background-color: #1b1b1b;
 			     padding:30px 0px;
+
 			}	       
 
 			.logo{
@@ -263,7 +269,14 @@
 			    -o-transition: all 1s ease-in-out;
 			    transition: all 1s ease-in-out;
 			}
-
+			div.login_nav {
+				margin-top: 600px;
+				position: relative;
+			}
+			login_nav1 {
+				margin-top: 600px;
+				color: #808080;
+			}
 			.address .fa{
 			    color: #da3e44;
 			    margin-right: 10px;
@@ -271,6 +284,10 @@
 			}
 			a {
 				color: white;
+			}
+			div.nav_bar_top_{
+				margin-left: 1235px;
+				margin-top: 9px;
 			}
 			.button {
 			  background-color: #4CAF50; /* Green */
@@ -325,6 +342,9 @@
 			  border: 2px solid red;
 			  background-color: white;
 			}
+			.logged_state{
+				color: #6200ee;
+			}
 
 		</style>
 		
@@ -348,7 +368,28 @@
 			<div class="innertube">
 				<h1><a href="http://127.0.0.1:8000/">ShoppingHub</a></h1>
 				<p1>Dein Platz für online Shopping!</p>
+
+
 			</div>
+			
+			<nav class="navbar navbar-inverse">
+					<ul class="nav navbar-nav">
+					  <li><a href="http://127.0.0.1:8000/">Home</a></li>
+						<li><a href="http://127.0.0.1:8000/products/">Produkte</a></li>
+						<li><a href="http://127.0.0.1:8000/contact/">Kontakt</a></li>
+						<li><a href="http://127.0.0.1:8000/shoppingcart/">Warenkorb</a></li>
+						<div class="nav_bar_top_">
+								{% if user.is_authenticated %}
+								Du bist als <b>{{ user.username }}</b> angemeldet.</p>
+								  <p><a href="{% url 'logout' %}"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>Abmelden</button></a></p>
+								{% else %}
+								 Du bist nicht Angemeldet
+								 <a href="{% url 'login' %}"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>Anmelden</button></a>
+								{% endif %}
+							</div>
+
+				  </nav>
+
 		</header>
 		
 		<div id="wrapper">
@@ -366,13 +407,9 @@
 			
 			<nav id="nav">
 				<div class="innertube">
-					<h3>Menü</h3>
+
 					<ul>
-                        <li><a href="http://127.0.0.1:8000/">Home</a></li>
-						<li><a href="http://127.0.0.1:8000/products/">Produkte</a></li>
-						<li><a href="http://127.0.0.1:8000/contact/">Kontakt</a></li>
-						<li><a href="http://127.0.0.1:8000/shoppingcart/">Warenkorb</a></li>
-						<li class="loog"><a href="http://127.0.0.1:8000/admin/login/">Artikel erstellen</a></li>
+
 					</ul>
 				</div>
 			</nav>
