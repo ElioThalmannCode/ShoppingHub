@@ -20,6 +20,8 @@
 			#header {
 				background: #222222;
 				height: 60px;
+				display: flex;
+				justify-content: space-between;
 			}
 			
 			#header h1 {
@@ -75,7 +77,19 @@
 				color: white;
 				font-family: Roboto;
 			}
-
+			FooterLinks {
+    		text-align: center;
+    		font-family: Kommissar;
+    		font-weight: 900;
+    		font-size: 16px;
+    		-webkit-user-select: none;
+    		-moz-user-select: none;
+    		-ms-user-select: none;
+    		user-select: none;
+    		text-transform: uppercase;
+    		padding: 47px 0 53px;
+    		background:#fff;
+}
 			}
 			.pic {
 
@@ -98,7 +112,9 @@
 			  height: auto;
 			  font-family: Roboto;
 			}
-			
+			div.innertube img {
+				margin-top: 5px;
+			}
 			div.desc {
 			  padding: 15px;
 			  text-align: center;
@@ -211,6 +227,8 @@
 			footer{
 			     background-color: #1b1b1b;
 			     padding:30px 0px;
+				 justify-content: space-between;
+
 
 			}	       
 
@@ -261,9 +279,11 @@
 				color: white;
 			}
 			div.nav_bar_top_{
-				margin-left: 1200px;
 				margin-top: 9px;
 				color: white;
+				margin-right: 10px;
+
+				
 			}
 			.button {
 			  background-color: #4CAF50; /* Green */
@@ -279,7 +299,10 @@
 			  transition-duration: 0.4s;
 			  cursor: pointer;
 			}
-
+			.vl {
+				border-left: 6px solid #6200ee;
+  				height: 20px;
+			}
 			.button1 {
 			  background-color: white; 
 			  color: black; 
@@ -290,7 +313,7 @@
 			  background-color: #4CAF50;
 			  color: white;
 			}
-
+			
 
 			.delete_button {
 			  background-color: red; /* Green */
@@ -306,7 +329,19 @@
 			  transition-duration: 0.4s;
 			  cursor: pointer;
 			}
+			div.footer_grid{
+				display: flex;
+				justify-content: space-between;
+				color: white;
+			}
+			div.footer_options1{
+				margin-left: 40%;
 
+			}
+			div.footer_options2{
+				margin-right: 40%;
+			}
+			}
 			.delete_button1 {
 			  background-color: white; 
 			  color: black; 
@@ -331,10 +366,17 @@
 
 		<header id="header">
 			<div class="innertube">
-				<h1><a href="http://127.0.0.1:8000/">ShoppingHub</a></h1>
-				<p1>Dein Platz für online Shopping!</p>
+				<img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/970/2589928970_9ff1b394-3699-43a8-a942-69f7cc5bde24.png?cb=1580131842" width="170" height="50">
 
-
+			</div>
+			<div class="nav_bar_top_">
+				{% if user.is_authenticated %}
+				Du bist als <b>{{ user.username }}</b> angemeldet.
+				  <a href="{% url 'logout' %}"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>Abmelden</button></a>
+				{% else %}
+				 Du bist nicht Angemeldet
+				 <a href="{% url 'login' %}"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>Anmelden</button></a>
+				{% endif %}
 			</div>
 
 
@@ -346,15 +388,7 @@
 				<li><a href="http://127.0.0.1:8000/products/">Produkte</a></li>
 				<li><a href="http://127.0.0.1:8000/contact/">Kontakt</a></li>
 				<li><a href="http://127.0.0.1:8000/shoppingcart/">Warenkorb</a></li>
-				<div class="nav_bar_top_">
-						{% if user.is_authenticated %}
-						Du bist als <b>{{ user.username }}</b> angemeldet.</p>
-						  <p><a href="{% url 'logout' %}"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>Abmelden</button></a></p>
-						{% else %}
-						 Du bist nicht Angemeldet
-						 <a href="{% url 'login' %}"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>Anmelden</button></a>
-						{% endif %}
-					</div>
+
 
 		  </nav>
 		<div id="wrapper">
@@ -383,43 +417,19 @@
 		       
 			</div>     
 		 </div>
-		 
 		 <footer>
-		  <div class="container">
-			<div class="row">
-			
-					 <div class="col-md-4 col-sm-6 col-xs-12">
-					   <span class="logo" href="http://127.0.0.1:8000/">ShoppingHub</span>
-					 </div>
-					 
-					 <div class="col-md-4 col-sm-6 col-xs-12">
-						 <ul class="menu">
-							  <span>Menu</span>    
-							  <li>
-								 <a href="http://127.0.0.1:8000/">Home</a>
-							   </li>
-									
-									
-							   <li>
-								 <a href="http://127.0.0.1:8000/admin/">Login</a>
-							   </li>
-									
-						  </ul>
-					 </div>
-				
-					 <div class="col-md-4 col-sm-6 col-xs-12">
-					   <ul class="address">
-							 <span>Kontakt:</span>       
-							 <li>
-								<i class="fa fa-envelope" aria-hidden="true"></i>orders.shoppinghub@gmail.com</a>
-							 </li> 
-						</ul>
-					</div>
-				
-				
-				</div> 
-			 </div>
+			<div class="footer_grid">
+			<div class="footer_options1">
+					<img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/970/2589928970_9ff1b394-3699-43a8-a942-69f7cc5bde24.png?cb=1580131842" width="80" height="20">
+			</div>
+			<div class="vl"></div>
+			<div class="footer_options2">
+					©Elio Thalmann
+			</div>
+
+		</div>
 		 </footer>
+
 	
 	</body>
 </html>
