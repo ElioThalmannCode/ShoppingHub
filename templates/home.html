@@ -2,7 +2,7 @@
 {% block content %}
 <div>
 <h1>Home</h1>
-<p>Hallo, {{ request.user }} hier haben wir ein paar Produkte für dich.</p>
+<p>Hallo,{% if user.is_authenticated %} {{ request.user }} {% endif %} hier haben wir ein paar Produkte für dich.</p>
 {% for product in products %}
   {% if product.featured == True %}
     <div class="responsive">
@@ -17,11 +17,4 @@
   </div>
   {% endif %}
 {% endfor %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-{% endif %}
 {% endblock content %}
