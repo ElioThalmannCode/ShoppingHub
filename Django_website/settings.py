@@ -129,7 +129,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'orders.shoppinghub@gmail.com'
-EMAIL_HOST_PASSWORD = 'KFvNcw4V62YMLyU'
+EMAIL_HOST_PASSWORD = 'tTkc3pXWmCajngY'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+STATIC_URL = '/static/'

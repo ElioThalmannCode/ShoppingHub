@@ -88,12 +88,12 @@ Du hast etwas bei Shoppinghub bestellt.
 Daten:
 
 Anrede: {request.POST['your_se']}
-sein Vorname: {request.POST['your_name']}
-sein Nachname: {request.POST['your_lastname']}
-seine PLZ: {request.POST['your_zip_code']}
-sein Ort: {request.POST['your_ort']}
-seine Adresse: {request.POST['your_adress']}
-seine Adressnummer: {request.POST['your_adressnr']}
+Vorname: {request.POST['your_name']}
+Nachname: {request.POST['your_lastname']}
+PLZ: {request.POST['your_zip_code']}
+Ort: {request.POST['your_ort']}
+Adresse: {request.POST['your_adress']}
+Adressnummer: {request.POST['your_adressnr']}
     
 bestellte Produkte:
 {all_order}
@@ -130,3 +130,5 @@ def send_question(request, *args, **kwargs):
         fail_silently=True,
     )
     return redirect("http://127.0.0.1:8000/")
+def about_us(request):
+    return render(request, "about_us.html")

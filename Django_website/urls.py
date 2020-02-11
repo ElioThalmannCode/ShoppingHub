@@ -34,6 +34,7 @@ urlpatterns = [
     path('question/', views.send_question),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('about-us/', views.about_us),
 
 
     ]

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <title>Elio Thalmann</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+<style type="text/css">
+header {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #174276;
+    height: 70px;
+    border-radius: 10px;
+    font-family: Roboto;
+
+}
+body {
+    font-family: Roboto;
+}
+div.header_grid {
+    display: flex;
+	justify-content: space-between;
+}
+div.header_left_element {
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}
+div.header_right_element {
+    font-size: 18px;
+    color: white;
+    margin-top: 5px;
+    margin-right: 10px;
+} 
+
+div.content {
+    background-color: #82d1f5;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5px;
+}
+div.who_am_i {
+    margin-left: 10px;
+}
+
+</style>
+
+<body>
+<header>
+    <div class="header_grid">
+        <div class="header_left_element">
+            <h1>Elio Thalmann</h1>
+        </div>
+        <div class="header_right_element">
+            <img src="http://umfrage.lwb.ch/logo.png" height="60px">
+
+        </div>
+</header>
+<div class="content">
+    <div class="who_am_i">
+    <h2>
+        Wer bin ich?
+    </h1>
+    <p>Mein Name ist Elio Thalmann.</p>
+    </div>
+    {% load static %}
+    <img src="{% static 'images/index.jpg' %}"/>
+</div>
+
+
+
+
+
+</body>
