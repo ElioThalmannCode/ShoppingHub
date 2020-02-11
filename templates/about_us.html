@@ -58,7 +58,8 @@ div.who_am_i {
             <h1>Elio Thalmann</h1>
         </div>
         <div class="header_right_element">
-            <img src="http://umfrage.lwb.ch/logo.png" height="60px">
+                {% load static %}
+            <img src="{% static '/images/TFBern.png' %}">
 
         </div>
 </header>
@@ -70,7 +71,7 @@ div.who_am_i {
     <p>Mein Name ist Elio Thalmann.</p>
     </div>
     {% load static %}
-    <img src="{% static 'images/index.jpg' %}"/>
+    <img src="{% static '/images/index.jpg' %}"/>
 </div>
 
 
