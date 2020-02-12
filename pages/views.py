@@ -6,10 +6,28 @@ from .forms import contact_form
 # Create your views here.
 def home_view(request, *args, **kwargs):
     products =  Product.objects.all()
-    return render(request, "home.html",  {"products": products})
+    scart = []
+    total_price = 0
+    for id in request.session.get("cart", [ ]):
+        product  = Product.objects.get(id=id)
+        total_price += product.price
+        scart.append(product)
+    return render(request, "home.html",  {
+        "shopping_cart": scart,
+        "products": products})
 def contact_view(request):
+    products =  Product.objects.all()
     form = contact_form
-    return render(request, "contact.html", {"form": form})
+    scart = []
+    total_price = 0
+    for id in request.session.get("cart", [ ]):
+        product  = Product.objects.get(id=id)
+        total_price += product.price
+        scart.append(product)
+    return render(request, "home.html",  {
+        "shopping_cart": scart,
+        "products": products,
+        "form": form})
 def login_view(request, *args, **kwargs):
     return render(request, "login.html")
 

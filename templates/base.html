@@ -105,6 +105,7 @@
 			div.gallery:hover {
 			  margin-top: 12px;
 			  border: 1px solid black;
+			  
 			}
 			
 			div.gallery img {
@@ -355,8 +356,55 @@
 			}
 			.logged_state{
 				color: #6200ee;
+						}
+			.dropbtn {
+			  background-color: #222222;
+			  padding: 16px;
+			  font-size: 16px;
+			  border: none;
+			  color: white;
 			}
 
+			.nav {
+				float: none;
+			}
+
+			.dropdown {
+			  position: relative;
+			  display: inline-block;
+			  float: right;
+
+			  
+			}
+
+			.dropdown-content {
+			  display: none;
+			  position: absolute;
+			  background-color: #f1f1f1;
+			  min-width: 200px;
+			  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			  z-index: 1;
+			  right: 20px;
+			}
+			.dropdown::before {
+				content: "Warenkorb";
+			}
+			.dropdown-content a {
+			  color: black;
+			  padding: 12px 160px;
+			  text-decoration: none;
+			  display: block;
+			}
+
+			.dropdown-content a:hover {background-color: #ddd;}
+
+			.dropdown:hover .dropdown-content {display: block;}
+
+			.dropdown:hover .dropbtn {background-color: #222222;}
+		    .dropdown:hover .dropdown-content {display: block;}
+
+            .dropdown:hover .dropbtn {background-color: #222222; color: white;}
+			
 		</style>
 		
 	
@@ -366,7 +414,7 @@
 
 		<header id="header">
 			<div class="innertube">
-				<a href="http://127.0.0.1:8000/"> <img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/970/2589928970_9ff1b394-3699-43a8-a942-69f7cc5bde24.png?cb=1580131842" width="170" height="50"></a>
+				<a href="http://127.0.0.1:8000/"> <img class="shake_image" src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/970/2589928970_9ff1b394-3699-43a8-a942-69f7cc5bde24.png?cb=1580131842" width="170" height="50"></a>
 
 			</div>
 			<div class="nav_bar_top_">
@@ -378,7 +426,7 @@
 				 <a href="{% url 'login' %}"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span>Anmelden</button></a>
 				{% endif %}
 			</div>
-
+			
 
 		</header>
 					
@@ -387,10 +435,22 @@
 			  <li><a href="http://127.0.0.1:8000/">Home</a></li>
 				<li><a href="http://127.0.0.1:8000/products/">Produkte</a></li>
 				<li><a href="http://127.0.0.1:8000/contact/">Kontakt</a></li>
-				<li><a href="http://127.0.0.1:8000/shoppingcart/">Warenkorb</a></li>
 				<li><a href="http://127.0.0.1:8000/about-us/">Über mich</a></li>
+				<div class="dropdown">
 
 
+
+						<a href="http://127.0.0.1:8000/shoppingcart/"><button class="dropbtn"><img src="https://cdn2.iconfinder.com/data/icons/web/512/Shopping_Cart-512.png" width="20px"></button>
+						<div class="dropdown-content">
+
+						{% for item in shopping_cart %}
+
+						  <a href="http://127.0.0.1:8000/products/{{ item.id }}/">{{ item.title }}
+						  <img class="img_product" src="{{ item.picture }}" alt="{{ item.title }}" width="120px" height="120px"></a>
+						  
+						{% endfor %}
+						</div>
+			</div>
 		  </nav>
 		<div id="wrapper">
 		
@@ -421,7 +481,8 @@
 		 <footer>
 			<div class="footer_grid">
 			<div class="footer_options1">
-					<img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/970/2589928970_9ff1b394-3699-43a8-a942-69f7cc5bde24.png?cb=1580131842" width="80" height="20">
+			
+			<img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/970/2589928970_9ff1b394-3699-43a8-a942-69f7cc5bde24.png?cb=1580131842" width="80" height="20">
 			</div>
 			<div class="vl"></div>
 			<div class="footer_options2">
